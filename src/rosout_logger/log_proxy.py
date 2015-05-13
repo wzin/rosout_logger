@@ -52,11 +52,12 @@ class LogProxy():
         return ros_syslog_severity_map[severity]
 
 def main():
-    rospy.loginfo("Starting ROS rosout_logger")
     configuration = log_proxy_parameters.LogProxyParameters()
     syslog_writer = syslog_handler.SyslogHandler(configuration)
     
     try:
+        rospy.init_node('rosout_logger')
+        rospy.loginfo("Starting rosout_logger")
         log_proxy = LogProxy(configuration, syslog_writer)
         rospy.Subscriber(configuration.ros_log_source,
                         Log,
