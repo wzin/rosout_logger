@@ -13,7 +13,7 @@ class LogProxyParameters():
         self.log_host = rospy.get_param('~respect_severity', 'localhost')
         self.include_seq = rospy.get_param('~include_seq', True)
         self.include_ros_node_name = rospy.get_param('~include_ros_node_name', True)
-        self.include_ros_file_name = rospy.get_param('~include_ros_file_name', True)
+        self.include_file_name = rospy.get_param('~include_ros_file_name', True)
         self.include_function_name = rospy.get_param('~include_function_name', True)
         self.include_line = rospy.get_param('~include_line', True)
         self.include_topic = rospy.get_param('~include_topic', True)
