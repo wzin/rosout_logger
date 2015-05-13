@@ -60,7 +60,7 @@ def main():
         log_proxy = LogProxy(configuration, syslog_writer)
         rospy.Subscriber(configuration.ros_log_source,
                         Log,
-                        log_proxy._process_message)
+                        log_proxy._process_ros_message)
 
     except rospy.ROSInterruptException, e:
         print "Exiting due to rospy.ROSInterruptException: %s" % e
