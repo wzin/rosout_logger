@@ -8,16 +8,16 @@ from rosout_logger import syslog_handler
 
 
 class LogProxy():
-    def __init__(self, configuration):
+    def __init__(self, configuration, syslog_writer):
         rospy.loginfo("Initializing %s" % self.__class__.__name__)
         self.configuration = configuration
-        self.syslog_handler = syslog_handler
+        self.syslog_writer = syslog_writer
     
     def _process_ros_message(self, msg):
         self._submit_to_syslog(self._deserialize_ros_log_msg(msg), msg.level)
     
     def _submit_to_syslog(self, log_entry, log_severity):
-        self.syslog_handler.submit(log_entry, log_severity)
+        self.syslog_writer.submit(log_entry, log_severity)
         
     def _deserialize_ros_log_msg(self, msg):
         """
@@ -54,10 +54,10 @@ class LogProxy():
 def main():
     rospy.loginfo("Starting ROS rosout_logger")
     configuration = log_proxy_parameters.LogProxyParameters()
-    syslog_handler = syslog_handler.SyslogHandler()
+    syslog_writer = syslog_handler.SyslogHandler()
     
     try:
-        log_proxy = LogProxy(configuration, syslog_handler)
+        log_proxy = LogProxy(configuration, syslog_writer)
         rospy.Subscriber(configuration.ros_log_source,
                         Log,
                         log_proxy._process_message)
