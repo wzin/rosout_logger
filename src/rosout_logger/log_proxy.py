@@ -54,7 +54,7 @@ class LogProxy():
 def main():
     rospy.loginfo("Starting ROS rosout_logger")
     configuration = log_proxy_parameters.LogProxyParameters()
-    syslog_writer = syslog_handler.SyslogHandler()
+    syslog_writer = syslog_handler.SyslogHandler(configuration)
     
     try:
         log_proxy = LogProxy(configuration, syslog_writer)
