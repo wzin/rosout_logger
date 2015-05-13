@@ -1,0 +1,14 @@
+Source: ros-indigo-rosout-logger
+Section: misc
+Priority: extra
+Maintainer: Wojciech Ziniewicz <wojciech.ziniewicz@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-std-msgs
+Homepage: http://liquid-galaxy.endpoint.com
+Standards-Version: 3.9.2
+
+Package: ros-indigo-logger
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-std-msgs, ros-indigo-rospy, ros-indigo-rosgraph-msgs
+Description: Configurable ROS to syslog bridge
+Replaces: __REPLACES__
+Conflicts: __REPLACES__

@@ -1,0 +1,5 @@
+ros-indigo-rosout-logger (1.0.0-0trusty) trusty; urgency=high
+
+  * First package creation for indigo release
+
+ -- Wojciech Ziniewicz <wojciech.ziniewicz@gmail.com>  Tue, 12 May 2015 16:47:00 +0100
