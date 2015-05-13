@@ -61,6 +61,7 @@ def main():
         rospy.Subscriber(configuration.ros_log_source,
                         Log,
                         log_proxy._process_ros_message)
+        rospy.spin()
 
     except rospy.ROSInterruptException, e:
         print "Exiting due to rospy.ROSInterruptException: %s" % e
