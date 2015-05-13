@@ -18,8 +18,8 @@ class SyslogHandler():
     
     def submit(self, message, severity):
         if self.respect_severity:
-            self.syslog(severity, message)
+            syslog(severity, message)
         else:
-            self.syslog(syslog.LOG_INFO, message)
+            syslog(syslog.LOG_INFO, message)
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
