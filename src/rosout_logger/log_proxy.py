@@ -2,7 +2,7 @@
 
 import rospy
 import syslog
-from rosgraph_msg.msg import Log
+from rosgraph_msgs.msg import Log
 from rosout_logger import log_proxy_parameters
 from rosout_logger import syslog_handler
 
