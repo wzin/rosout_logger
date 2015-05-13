@@ -7,6 +7,7 @@ class SyslogHandler():
     def __init__(self, configuration):
         rospy.loginfo("Initializing %s" % self.__class__.__name__)
         self.facility = configuration.syslog_facility
+        rospy.loginfo("%s will be logging to syslog %s facility" % (self.__class__.__name__, self.facility))
         self.respect_severity = configuration.respect_severity
         # notimplemented yet start
         self.port = configuration.log_port
