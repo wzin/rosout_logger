@@ -13,9 +13,9 @@ class SyslogHandler():
         self.port = configuration.log_port
         self.host = configuration.log_host
         # notimplemented yet end
-        
+
         syslog.openlog(facility=self.facility)
-    
+
     def submit(self, message, severity):
         if self.respect_severity:
             syslog.syslog(severity, message)

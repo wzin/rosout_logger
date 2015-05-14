@@ -17,11 +17,11 @@ class LogProxyParameters():
         self.include_function_name = rospy.get_param('~include_function_name', True)
         self.include_line = rospy.get_param('~include_line', True)
         self.include_topic = rospy.get_param('~include_topic', True)
-    
+
     def _initialize_facility(self):
         syslog_facility_string = rospy.get_param('~syslog_facility', 'local7')
         return self._get_facility_by_string(syslog_facility_string)
-    
+
     def _get_facility_by_string(self, facility_string):
         """
         Translates human readable syslog facility name to syslog facility int understood by syslog
@@ -35,7 +35,7 @@ class LogProxyParameters():
         except KeyError:
             rospy.logwarn("Could not get provided facility for syslog - using LOGINFO")
             facility_int = 6
-        
+
         return facility_int
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4

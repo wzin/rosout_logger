@@ -12,20 +12,20 @@ class LogProxy():
         rospy.loginfo("Initializing %s" % self.__class__.__name__)
         self.configuration = configuration
         self.syslog_writer = syslog_writer
-    
+
     def _process_ros_message(self, msg):
         self._submit_to_syslog(self._deserialize_ros_log_msg(msg), msg.level)
-    
+
     def _submit_to_syslog(self, log_entry, log_severity):
         self.syslog_writer.submit(log_entry, log_severity)
-        
+
     def _deserialize_ros_log_msg(self, msg):
         """
         Add all the fields to syslog message according to the configuration
         """
         header = ''
         if self.configuration.include_seq:
-            header = "%s %s" % (header, msg.header.seq) 
+            header = "%s %s" % (header, msg.header.seq)
         if self.configuration.include_ros_node_name:
             header = "%s %s" % (header, msg.name)
         if self.configuration.include_file_name:
@@ -36,11 +36,11 @@ class LogProxy():
             header = "%s %s" % (header, msg.line)
         if self.configuration.include_topic:
             header = "%s (%s)" % (header, (',').join(msg.topics))
-        
+
         log_entry = "%s %s" % (header, msg.msg)
-        
+
         return log_entry
-        
+
     def _get_syslog_severity(self, severity):
         ros_syslog_severity_map = {
                                     1: syslog.LOG_DEBUG,
@@ -54,7 +54,7 @@ class LogProxy():
 def main():
     configuration = log_proxy_parameters.LogProxyParameters()
     syslog_writer = syslog_handler.SyslogHandler(configuration)
-    
+
     try:
         rospy.init_node('rosout_logger')
         rospy.loginfo("Starting rosout_logger")
