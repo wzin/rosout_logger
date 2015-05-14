@@ -1,3 +1,9 @@
+ros-indigo-rosout-logger (1.0.3-0trusty) trusty; urgency=high
+
+  * Bumped version after ubl removal
+
+ -- Wojciech Ziniewicz <wojciech.ziniewicz@gmail.com>  Tue, 14 May 2015 14:02:00 +0100
+
 ros-indigo-rosout-logger (1.0.2-0trusty) trusty; urgency=high
 
   * Bumped version and set package name
