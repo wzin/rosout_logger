@@ -1,4 +1,4 @@
-ros-indigo-rosout-logger (1.0.1-0trusty) trusty; urgency=high
+ros-indigo-rosout-logger (1.0.2-0trusty) trusty; urgency=high
 
   * Bumped version and set package name
 
