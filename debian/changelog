@@ -1,3 +1,9 @@
+ros-indigo-rosout-logger (1.0.1-0trusty) trusty; urgency=high
+
+  * Bumped version
+
+ -- Wojciech Ziniewicz <wojciech.ziniewicz@gmail.com>  Tue, 14 May 2015 13:39:00 +0100
+
 ros-indigo-rosout-logger (1.0.0-0trusty) trusty; urgency=high
 
   * First package creation for indigo release
